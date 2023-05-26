@@ -43,8 +43,10 @@ const baseConfig: Configuration = {
   module: {
     rules: [
       {
-        test: /.(ts|tsx)$/, // 匹配.ts, tsx文件
-        use: 'babel-loader',
+        test: /\.(ts|tsx)$/, // 匹配.ts, tsx文件
+        exclude: /node_modules/,
+        // use: 'babel-loader',
+        use: ['thread-loader', 'babel-loader'], // 项目变大之后再开启多进程loader
       },
       {
         test: /\.css$/i,
