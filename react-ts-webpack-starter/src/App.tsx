@@ -2,6 +2,9 @@ import '@/App.css'
 import scssStyles from '@/app.scss'
 import smallImg from '@/assets/imgs/small.jpeg'
 import bigImg from '@/assets/imgs/big.jpg'
+import memberList from './test.json'
+
+console.log('memberList :>> ', memberList)
 
 function App() {
   return (
