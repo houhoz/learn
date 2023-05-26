@@ -8,7 +8,7 @@ function App() {
     <>
       <h2 className='h2'>Hello world</h2>
       <div className={scssStyles['scssBox']}>
-        <div className={scssStyles['box']}>scssBox</div>
+        <div className={scssStyles['box']}>scssBox 处理字体</div>
         <img src={smallImg} alt='小于10kb的图片' />
         <img src={bigImg} alt='大于于10kb的图片' />
         <div className={scssStyles['smallImg']}>小图片背景</div>
