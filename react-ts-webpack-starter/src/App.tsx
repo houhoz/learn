@@ -23,7 +23,7 @@ function App() {
         <div className={scssStyles['bigImg']}>大图片背景</div>
       </div>
       <div>
-        <p>受控组件111</p>
+        <p>受控组件1111</p>
         <input type='text' value={count} onChange={onChange} />
         <br />
         <p>非受控组件</p>
