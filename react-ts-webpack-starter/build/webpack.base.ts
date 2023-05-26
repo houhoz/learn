@@ -1,8 +1,11 @@
 import { Configuration, DefinePlugin } from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import * as dotenv from 'dotenv'
-const path = require('path')
 import WebpackBar from 'webpackbar'
+const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+const isDev = process.env.NODE_ENV === 'development' // 是否是开发模式
 
 // 加载配置文件
 const envConfig = dotenv.config({
@@ -13,7 +16,7 @@ const envConfig = dotenv.config({
 })
 
 const styleLoadersArray = [
-  'style-loader',
+  isDev ? 'style-loader' : MiniCssExtractPlugin.loader, // 开发环境使用style-looader,打包模式抽离css
   {
     loader: 'css-loader',
     options: {
@@ -52,7 +55,10 @@ const baseConfig: Configuration = {
         test: /\.css$/i,
         exclude: /node_modules/,
         // use: styleLoadersArray,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+        ],
       },
       {
         test: /\.s[ac]ss$/i,
