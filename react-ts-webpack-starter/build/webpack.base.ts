@@ -50,15 +50,18 @@ const baseConfig: Configuration = {
       },
       {
         test: /\.css$/i,
+        exclude: /node_modules/,
         // use: styleLoadersArray,
         use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.s[ac]ss$/i,
+        exclude: /node_modules/,
         use: [...styleLoadersArray, 'sass-loader'],
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i, // 匹配图片文件
+        exclude: /node_modules/,
         type: 'asset', // type选择asset
         parser: {
           dataUrlCondition: {
@@ -71,6 +74,7 @@ const baseConfig: Configuration = {
       },
       {
         test: /.(woff2?|eot|ttf|otf)$/, // 匹配字体图标文件
+        exclude: /node_modules/,
         type: 'asset', // type选择asset
         parser: {
           dataUrlCondition: {
@@ -84,6 +88,7 @@ const baseConfig: Configuration = {
       {
         // 匹配json文件
         test: /\.json$/,
+        exclude: /node_modules/,
         type: 'asset/resource', // 将json文件视为文件类型
         generator: {
           // 这里专门针对json文件的处理
@@ -93,7 +98,16 @@ const baseConfig: Configuration = {
     ],
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.less', '.css'],
+    extensions: [
+      '.ts',
+      '.tsx',
+      '.js',
+      '.jsx',
+      '.css',
+      '.scss',
+      '.sass',
+      '.json',
+    ],
     // 别名需要配置两个地方，这里和 tsconfig.json
     alias: {
       '@': path.join(__dirname, '../src'),
