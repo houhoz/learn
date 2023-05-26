@@ -28,8 +28,23 @@ const baseConfig: Configuration = {
         use: 'babel-loader',
       },
       {
-        test: /.css$/, //匹配 css 文件
+        test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[path][name]__[local]--[hash:5]',
+              },
+            },
+          },
+          'sass-loader',
+        ],
       },
     ],
   },
