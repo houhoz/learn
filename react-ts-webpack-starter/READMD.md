@@ -12,3 +12,8 @@
 - 本地开发首次打包慢点没关系，因为 eval 缓存的原因，热更新会很快
 - 开发中，我们每行代码不会写的太长，只需要定位到行就行，所以加上 cheap
 - 我们希望能够找到源代码的错误，而不是打包后的，所以需要加上 module
+
+
+https://juejin.cn/post/7207374216126922809
+
+https://github.com/ian-kevin126/react18-ts4-webpack5-starter/blob/main/build/webpack.base.ts
