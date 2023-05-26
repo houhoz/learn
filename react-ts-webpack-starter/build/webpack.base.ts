@@ -11,6 +11,20 @@ const envConfig = dotenv.config({
   ),
 })
 
+const styleLoadersArray = [
+  'style-loader',
+  {
+    loader: 'css-loader',
+    options: {
+      modules: {
+        localIdentName: '[path][name]__[local]--[hash:5]',
+      },
+    },
+  },
+  // 添加 postcss-loader
+  'postcss-loader',
+]
+
 const baseConfig: Configuration = {
   entry: path.join(__dirname, '../src/index.tsx'), // 入口文件
   // 打包出口文件
@@ -29,22 +43,12 @@ const baseConfig: Configuration = {
       },
       {
         test: /\.css$/i,
+        // use: styleLoadersArray,
         use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                localIdentName: '[path][name]__[local]--[hash:5]',
-              },
-            },
-          },
-          'sass-loader',
-        ],
+        use: [...styleLoadersArray, 'sass-loader'],
       },
     ],
   },

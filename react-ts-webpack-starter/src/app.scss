@@ -3,7 +3,10 @@ $side: left;
 
 .scssBox {
   margin: 20px 0;
+  display: flex;
+  transform: scale(1.1);
   .box {
+    display: flex;
     color: $blue;
     background-color: rgb(226, 223, 223);
     border: 1px solid grey;
