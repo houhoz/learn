@@ -3,6 +3,7 @@ import '@/App.css'
 import scssStyles from '@/app.scss'
 import smallImg from '@/assets/imgs/small.jpeg'
 import bigImg from '@/assets/imgs/big.jpg'
+import { Demo1, Demo2 } from '@/components'
 import memberList from './test.json'
 
 console.log('memberList :>> ', memberList)
@@ -29,6 +30,7 @@ function App() {
         <p>非受控组件</p>
         <input type='text' />
       </div>
+      <Demo1 />
     </>
   )
 }
