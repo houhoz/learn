@@ -12,7 +12,8 @@
     "build:test": "cross-env NODE_ENV=production BASE_ENV=test webpack -c build/webpack.prod.ts",
     "build:pre": "cross-env NODE_ENV=production BASE_ENV=pre webpack -c build/webpack.prod.ts",
     "build:prod": "cross-env NODE_ENV=production BASE_ENV=production webpack -c build/webpack.prod.ts",
-    "build:analyze": "cross-env NODE_ENV=production BASE_ENV=production webpack -c build/webpack.analyze.ts"
+    "build:analyze": "cross-env NODE_ENV=production BASE_ENV=production webpack -c build/webpack.analyze.ts",
+    "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,ts,json,tsx,css,scss,html,md}\""
   },
   "keywords": [],
   "author": "",
@@ -42,6 +43,7 @@
     "html-webpack-plugin": "^5.5.1",
     "mini-css-extract-plugin": "^2.7.6",
     "postcss-loader": "^7.3.1",
+    "prettier": "^2.8.8",
     "react-refresh": "^0.14.0",
     "sass": "^1.62.1",
     "sass-loader": "^13.3.0",

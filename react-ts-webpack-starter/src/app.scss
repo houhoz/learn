@@ -2,17 +2,16 @@ $blue: #1875e7;
 $side: left;
 
 @font-face {
-    font-family: "GoldmanBold";
-    src: local("GoldmanBold"),
-     url("@/assets/fonts/MaShanZheng-Regular.ttf") format("truetype");
-    font-weight: bold;
+  font-family: 'GoldmanBold';
+  src: local('GoldmanBold'), url('@/assets/fonts/MaShanZheng-Regular.ttf') format('truetype');
+  font-weight: bold;
 }
 
 .scssBox {
   margin: 20px 0;
   transform: translate(100px);
   .box {
-    font-family: "GoldmanBold";
+    font-family: 'GoldmanBold';
     color: $blue;
     background-color: rgb(226, 223, 223);
     border: 1px solid grey;
@@ -29,5 +28,4 @@ $side: left;
     height: 154px;
     background: url('@/assets/imgs/big.jpg') no-repeat;
   }
-
 }
