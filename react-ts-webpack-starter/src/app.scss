@@ -3,14 +3,23 @@ $side: left;
 
 .scssBox {
   margin: 20px 0;
-  display: flex;
-  transform: scale(1.1);
+  transform: translate(100px);
   .box {
-    display: flex;
     color: $blue;
     background-color: rgb(226, 223, 223);
     border: 1px solid grey;
     margin-#{$side}: 20px;
     padding: 20px;
   }
+  .smallImg {
+    width: 69px;
+    height: 75px;
+    background: url('@/assets/imgs/small.jpeg') no-repeat;
+  }
+  .bigImg {
+    width: 232px;
+    height: 154px;
+    background: url('@/assets/imgs/big.jpg') no-repeat;
+  }
+
 }
