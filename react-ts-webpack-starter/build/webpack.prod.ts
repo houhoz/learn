@@ -13,7 +13,7 @@ const prodConfig: Configuration = merge(baseConfig, {
   mode: 'production', // 生产模式,会开启tree-shaking和压缩代码,以及其他优化
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'static/css/[name].css', // 抽离css的输出目录和名称
+      filename: 'static/css/[name].[contenthash:8].css', // 加上[contenthash:8]
     }),
     // 打包时生成gzip文件
     new CompressionPlugin({
