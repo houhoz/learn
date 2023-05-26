@@ -27,6 +27,9 @@ const styleLoadersArray = [
 ]
 
 const baseConfig: Configuration = {
+  cache: {
+    type: 'filesystem', // 使用文件缓存
+  },
   entry: path.join(__dirname, '../src/index.tsx'), // 入口文件
   // 打包出口文件
   output: {
