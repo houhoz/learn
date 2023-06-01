@@ -1,11 +1,27 @@
 import { Module } from '@nestjs/common';
-import { UserController } from './user/user.controller';
 import { UserModule } from './user/user.module';
-import { UserService } from './user/user.service';
+import { ConfigModule } from '@nestjs/config';
+import * as Joi from 'joi';
+
+const envFilePath = `.env.${process.env.NODE_ENV || 'development'}`;
 
 @Module({
-  imports: [UserModule],
-  controllers: [UserController],
-  providers: [UserService],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath,
+      validationSchema: Joi.object({
+        NODE_ENV: Joi.string()
+          .valid('development', 'production')
+          .default('development'),
+        DB_PORT: Joi.number().default(3306),
+        DB_URL: Joi.string().domain(),
+        DB_HOST: Joi.string().ip(),
+      }),
+    }),
+    UserModule,
+  ],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

@@ -24,3 +24,11 @@ nest g module user --no-spec -d
 nest g controller user --no-spec -d
 nest g service user --no-spec -d
 ```
+
+![nestjs](./../images/nestjs.png)
+
+```bash
+
+docker-compose up -d
+
+```
