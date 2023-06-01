@@ -15,7 +15,7 @@ export class UserController {
 
   @Get()
   getUsers(): any {
-    const db = this.configService.get(ConfigEnum.DB);
+    const db = this.configService.get(ConfigEnum.DB_DATABASE);
     console.log('db :>> ', db);
     return this.userService.getUsers();
   }
