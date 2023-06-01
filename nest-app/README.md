@@ -17,3 +17,10 @@ nest.js
 - 路由 + 逻辑简洁
 - 合理的逻辑分层
 - 使用TypeScript更健壮
+
+
+```bash
+nest g module user --no-spec -d
+nest g controller user --no-spec -d
+nest g service user --no-spec -d
+```
