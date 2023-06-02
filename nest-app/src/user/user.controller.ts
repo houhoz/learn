@@ -1,7 +1,7 @@
-import { Controller, Get } from '@nestjs/common';
-import { UserService } from './user.service';
+import { Controller, Get, Post, Patch, Delete } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { ConfigEnum } from './../enum/config.enum';
+import { UserService } from './user.service';
+import { User } from './user.entity';
 
 @Controller('user')
 export class UserController {
@@ -15,8 +15,37 @@ export class UserController {
 
   @Get()
   getUsers(): any {
-    const db = this.configService.get(ConfigEnum.DB_DATABASE);
-    console.log('db :>> ', db);
-    return this.userService.getUsers();
+    return this.userService.findAll();
+  }
+
+  @Post()
+  addUser(): any {
+    // TODO 解析Body参数
+    const user = { username: 'test11', password: '123456' } as User;
+    return this.userService.create(user);
+  }
+
+  @Patch()
+  updateUser(): any {
+    // TODO 传递参数id
+    // TODO 异常处理
+    const user = { username: 'newName' } as User;
+    return this.userService.update(3, user);
+  }
+
+  @Delete()
+  deleteUser(): any {
+    // TODO 传递参数id
+    return this.userService.remove(5);
+  }
+
+  @Get('/profile')
+  getUserProfile(): any {
+    return this.userService.findProfile(1);
+  }
+
+  @Get('/logs')
+  getUserLogs(): any {
+    return this.userService.findUserLogs(1);
   }
 }

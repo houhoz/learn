@@ -28,7 +28,5 @@ nest g service user --no-spec -d
 ![nestjs](./../images/nestjs.png)
 
 ```bash
-
 docker-compose up -d
-
 ```
