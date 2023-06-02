@@ -43,8 +43,8 @@ const envFilePath = `.env.${process.env.NODE_ENV || 'development'}`;
           entities: [User, Profile, Roles, Logs],
           // 同步本地的schema与数据库--> 初始化的时候去使用
           synchronize: configService.get(ConfigEnum.DB_SYNC),
-          // logging: ['error'],
-          logging: process.env.NODE_ENV === 'development',
+          logging: false,
+          // logging: process.env.NODE_ENV === 'development',
         } as TypeOrmModuleOptions),
     }),
     // TypeOrmModule.forRoot({
