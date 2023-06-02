@@ -64,6 +64,11 @@ export class UserService {
 
   findLogsByGroup(id: number) {
     // SELECT logs.result as result, COUNT(logs.result) as count from logs, user WHERE user.id = logs.userId AND user.id = 2 GROUP BY logs.result
+
+    // 使用sql语句查询
+    // return this.logsRepository.query(
+    //   'SELECT logs.result as result, COUNT(logs.result) as count from logs, user WHERE user.id = logs.userId AND user.id = 2 GROUP BY logs.result',
+    // );
     return (
       this.logsRepository
         .createQueryBuilder('logs')
