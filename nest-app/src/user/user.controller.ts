@@ -49,6 +49,11 @@ export class UserController {
     return this.userService.findUserLogs(1);
   }
 
+  @Get('/roles')
+  getUserRoles(): any {
+    return this.userService.findUserLogs(1);
+  }
+
   @Get('/logsByGroup')
   async getLogsByGroup(): Promise<any> {
     const res = await this.userService.findLogsByGroup(2);

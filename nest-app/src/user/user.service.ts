@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Logs } from './../logs/logs.entity';
 import { User } from './user.entity';
+import { Roles } from './../roles/roles.entity';
 
 @Injectable()
 export class UserService {
@@ -11,6 +12,8 @@ export class UserService {
     private userRepository: Repository<User>,
     @InjectRepository(Logs)
     private logsRepository: Repository<Logs>,
+    @InjectRepository(Roles)
+    private rolesRepository: Repository<Roles>,
   ) {}
   findAll() {
     return this.userRepository.find();
@@ -61,6 +64,11 @@ export class UserService {
       // },
     });
   }
+
+  // async findUserRoles(id: number) {
+  //   // const user = await this.findOne(id);
+  //   return this.rolesRepository.find();
+  // }
 
   findLogsByGroup(id: number) {
     // SELECT logs.result as result, COUNT(logs.result) as count from logs, user WHERE user.id = logs.userId AND user.id = 2 GROUP BY logs.result
