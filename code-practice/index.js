@@ -45,3 +45,38 @@ function test() {
     }
   })
 }
+
+const debounce = (fn, delay) => {
+  let timer = null
+  return () => {
+    if (timer) {
+      clearTimeout(timer)
+    }
+    timer = setTimeout(() => {
+      fn()
+      timer = null
+    }, delay)
+  }
+}
+
+function retry(fn, times, delay) {
+  let currTimes = 1
+  return new Promise(function (resolve, reject) {
+    function attempt() {
+      fn()
+        .then(resolve)
+        .catch(function (err) {
+          console.log(`第 ${currTimes} 次尝试`)
+          if (times === 0) {
+            reject(err)
+          } else {
+            times--
+            currTimes++
+            setTimeout(attempt(), delay)
+          }
+        })
+    }
+
+    attempt()
+  })
+}
