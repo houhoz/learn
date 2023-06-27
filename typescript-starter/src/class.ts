@@ -54,3 +54,45 @@ class C extends Persons implements I {
     return 'from' + 'to'
   }
 }
+
+interface Battery {
+  checkBatteryStatus(): void
+}
+
+interface Radio {
+  switchRadio(): void
+}
+
+interface RadioWithBattery extends Radio {
+  checkBatteryStatus(): void
+}
+
+class Car implements Radio {
+  switchRadio(): void {}
+}
+
+// class CellPhone implements Radio, Battery {
+//   switchRadio(): void {}
+//   checkBatteryStatus(): void {}
+// }
+
+class CellPhone implements RadioWithBattery {
+  switchRadio(): void {}
+  checkBatteryStatus(): void {}
+}
+
+class Queue<T> {
+  private data: T[] = []
+  push(item: T) {
+    return this.data.push(item)
+  }
+  pop(): T | undefined {
+    return this.data.shift()
+  }
+}
+
+const queue = new Queue<number>()
+queue.push(1)
+// queue.push('str')
+console.log(queue.pop()?.toFixed())
+console.log(queue.pop()?.toFixed())
